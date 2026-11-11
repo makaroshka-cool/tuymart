@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "slug": "moloko-3-2",
+    "title": "Молоко 3,2%",
+    "category": "Молочные продукты",
+    "price": 89,
+    "unit": "1 л",
+    "image": "https://images.unsplash.com/photo-1550583724-b2692b85b150?auto=format&fit=crop&w=600&q=80",
+    "description": "Пастеризованное молоко 3,2% жирности. Свежее, от местного производителя."
+  },
+  {
+    "id": 2,
+    "slug": "hleb-borodinskiy",
+    "title": "Хлеб «Бородинский»",
+    "category": "Хлеб и выпечка",
+    "price": 55,
+    "unit": "400 г",
+    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80",
+    "description": "Классический бородинский хлеб на закваске. Выпекаем каждое утро."
+  },
+  {
+    "id": 3,
+    "slug": "yaytsa-s1",
+    "title": "Яйца куриные С1",
+    "category": "Яйца",
+    "price": 129,
+    "unit": "10 шт.",
+    "image": "https://images.unsplash.com/photo-1518569656558-1f25e69d93d7?auto=format&fit=crop&w=600&q=80",
+    "description": "Свежие куриные яйца первой категории. Упаковка 10 штук."
+  },
+  {
+    "id": 4,
+    "slug": "banany",
+    "title": "Бананы",
+    "category": "Овощи и фрукты",
+    "price": 99,
+    "unit": "1 кг",
+    "image": "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=600&q=80",
+    "description": "Спелые бананы. Отличный перекус для всей семьи."
+  },
+  {
+    "id": 5,
+    "slug": "syrok-tvorozhny",
+    "title": "Сырок творожный",
+    "category": "Молочные продукты",
+    "price": 42,
+    "unit": "50 г",
+    "image": "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?auto=format&fit=crop&w=600&q=80",
+    "description": "Творожный сырок с ванилью. Нежный вкус, идеален к чаю."
+  },
+  {
+    "id": 6,
+    "slug": "voda-pitievaya",
+    "title": "Вода питьевая",
+    "category": "Напитки",
+    "price": 35,
+    "unit": "1,5 л",
+    "image": "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=600&q=80",
+    "description": "Питьевая негазированная вода. Мягкая и чистая."
+  }
+]
