@@ -3,158 +3,581 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Туймарт — сеть минимаркетов в Якутске | Продукты с доставкой</title>
-  <meta name="description" content="Туймарт — сеть минимаркетов в Якутске. Свежие продукты, удобные магазины рядом с домом, доставка продуктов. Узнайте адреса магазинов и акции.">
-  <meta name="keywords" content="туймарт, якутск минимаркет, продукты якутск, магазин туймарт, доставка продуктов якутск">
+  <title>Туймарт — минимаркеты в Якутске | Свежие продукты и доставка</title>
+  <meta name="description" content="Туймарт — сеть минимаркетов в Якутске. Свежие продукты, выгодные акции, удобные магазины рядом с домом. Адреса магазинов и новости сети.">
+  <meta name="keywords" content="туймарт, якутск минимаркет, продукты якутск, магазин туймарт, доставка продуктов якутск, акции туймарт, свежие продукты якутск">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://username.github.io/tuymart-landing/">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --green: #0d6b4d;
+      --green-2: #14a06f;
+      --yellow: #f5b301;
+      --ink: #1a1a1a;
+      --muted: #6b7280;
+      --bg: #f6f8f7;
+      --card: #ffffff;
+      --radius: 14px;
+      --shadow: 0 10px 30px rgba(13, 107, 77, 0.08);
+    }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Manrope", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      line-height: 1.6;
+      background: var(--bg);
+    }
+    img { display: block; max-width: 100%; }
+    .container { max-width: 1160px; margin: 0 auto; padding: 0 20px; }
 
-    /* Хедер */
-    .header { background: #0d6b4d; color: #fff; }
-    .header__inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
-    .logo { color: #fff; font-size: 24px; font-weight: 700; text-decoration: none; }
-    .nav a { color: #fff; text-decoration: none; margin-left: 18px; }
-    .nav a:hover { text-decoration: underline; }
+    /* Header */
+    .header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(13, 107, 77, 0.98);
+      backdrop-filter: blur(8px);
+      color: #fff;
+    }
+    .header__inner { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; gap: 16px; }
+    .logo { color: #fff; font-size: 24px; font-weight: 800; text-decoration: none; letter-spacing: .5px; display: flex; align-items: center; gap: 8px; }
+    .logo span { color: var(--yellow); }
+    .nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    .nav a { color: #e9f5ef; text-decoration: none; font-weight: 600; font-size: 15px; transition: color .2s; }
+    .nav a:hover { color: var(--yellow); }
+    .header__phone { color: #fff; text-decoration: none; font-weight: 700; white-space: nowrap; }
+
+    .shop-bar { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .cart-btn {
+      position: relative; background: var(--yellow); color: #1a1a1a;
+      padding: 10px 16px; border-radius: 10px; text-decoration: none; font-weight: 800;
+    }
+    .cart-btn .count {
+      position: absolute; top: -6px; right: -6px; background: #c0392b; color: #fff;
+      font-size: 12px; font-weight: 700; min-width: 20px; height: 20px; border-radius: 10px;
+      display: grid; place-items: center; padding: 0 5px;
+    }
 
     /* Hero */
-    .hero { background: linear-gradient(135deg, #0d6b4d, #14a06f); color: #fff; padding: 80px 0; text-align: center; }
-    .hero h1 { font-size: 36px; margin-bottom: 16px; }
-    .hero p { font-size: 18px; margin-bottom: 24px; }
-    .btn { display: inline-block; background: #f5b301; color: #1a1a1a; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; }
-    .btn:hover { opacity: 0.9; }
+    .hero {
+      position: relative;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      background: url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1920&q=80") center/cover no-repeat;
+    }
+    .hero::before {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(90deg, rgba(8, 60, 44, 0.92) 0%, rgba(8, 60, 44, 0.55) 55%, rgba(8, 60, 44, 0.25) 100%);
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero__badge {
+      display: inline-block; background: var(--yellow); color: #1a1a1a;
+      padding: 6px 14px; border-radius: 999px; font-weight: 700; font-size: 13px; margin-bottom: 18px;
+    }
+    .hero h1 { font-size: clamp(28px, 4.5vw, 48px); line-height: 1.15; margin-bottom: 16px; max-width: 720px; }
+    .hero p { font-size: clamp(16px, 1.6vw, 19px); margin-bottom: 28px; max-width: 560px; color: #e9f5ef; }
+    .hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 13px 28px; border-radius: 10px; text-decoration: none; font-weight: 700; transition: transform .15s, box-shadow .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn--primary { background: var(--yellow); color: #1a1a1a; box-shadow: 0 8px 20px rgba(245, 179, 1, .35); }
+    .btn--ghost { background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.5); }
+    .hero__stats { display: flex; gap: 32px; margin-top: 36px; flex-wrap: wrap; }
+    .hero__stats b { display: block; font-size: 26px; color: var(--yellow); }
+    .hero__stats span { font-size: 14px; color: #d7ece3; }
 
-    /* Секции */
-    .section { padding: 60px 0; }
-    .section--gray { background: #f4f6f5; }
-    .section h1, .section h2 { font-size: 28px; margin-bottom: 24px; }
+    /* Sections */
+    .section { padding: 72px 0; }
+    .section--gray { background: #eef3f0; }
+    .section__head { max-width: 720px; margin-bottom: 36px; }
+    .section__head h2 { font-size: clamp(24px, 3vw, 34px); margin-bottom: 10px; }
+    .section__head p { color: var(--muted); font-size: 17px; }
 
-    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-    .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; }
+    /* Features */
+    .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .feature { background: var(--card); border-radius: var(--radius); padding: 26px 22px; box-shadow: var(--shadow); }
+    .feature__icon {
+      width: 52px; height: 52px; border-radius: 12px; display: grid; place-items: center;
+      background: #e6f4ee; color: var(--green); font-size: 24px; margin-bottom: 14px;
+    }
+    .feature h3 { font-size: 18px; margin-bottom: 6px; }
+    .feature p { color: var(--muted); font-size: 15px; }
 
-    /* Новости */
-    .news-list { display: grid; gap: 20px; }
-    .news-item { border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; background: #fff; }
-    .news-item h2 { font-size: 22px; margin-bottom: 8px; }
-    .news-item .date { color: #777; font-size: 14px; margin-bottom: 10px; }
+    /* Categories */
+    .categories { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .category {
+      position: relative; border-radius: var(--radius); overflow: hidden; min-height: 220px;
+      display: flex; align-items: flex-end; color: #fff; text-decoration: none;
+      box-shadow: var(--shadow);
+    }
+    .category img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
+    .category::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.05) 30%, rgba(0,0,0,.75) 100%); }
+    .category:hover img { transform: scale(1.06); }
+    .category__body { position: relative; z-index: 1; padding: 18px; }
+    .category h3 { font-size: 20px; margin-bottom: 4px; }
+    .category span { font-size: 14px; color: #dfe9e4; }
 
-    /* Футер */
-    .footer { background: #1a1a1a; color: #ccc; padding: 24px 0; text-align: center; font-size: 14px; }
+    /* Products */
+    .products { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .product {
+      background: #fff; border-radius: 14px; overflow: hidden; box-shadow: var(--shadow);
+      display: flex; flex-direction: column;
+    }
+    .product img { width: 100%; height: 180px; object-fit: cover; }
+    .product__body { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+    .product h3 { font-size: 17px; margin: 0; }
+    .product .cat { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .5px; }
+    .product .desc { font-size: 14px; color: #4b5563; flex: 1; }
+    .product .foot { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; gap: 8px; }
+    .product .price { font-weight: 800; font-size: 18px; color: var(--green); }
+    .product .price small { font-size: 12px; color: var(--muted); font-weight: 600; }
+    .add-btn {
+      background: var(--green); color: #fff; border: none; border-radius: 10px; padding: 9px 14px;
+      font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+    .add-btn:disabled { background: #a8c9bb; cursor: default; }
 
+    /* Promo */
+    .promo { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .promo-card {
+      border-radius: var(--radius); padding: 28px; color: #1a1a1a; position: relative; overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .promo-card--yellow { background: linear-gradient(135deg, #ffe08a, #f5b301); }
+    .promo-card--green { background: linear-gradient(135deg, #14a06f, #0d6b4d); color: #fff; }
+    .promo-card--mint { background: linear-gradient(135deg, #d9f2e6, #a8e0c6); }
+    .promo-card h3 { font-size: 22px; margin-bottom: 8px; }
+    .promo-card p { font-size: 15px; opacity: .9; margin-bottom: 16px; }
+    .promo-card .tag { display: inline-block; font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: rgba(0,0,0,.12); margin-bottom: 12px; }
+    .promo-card--green .tag { background: rgba(255,255,255,.2); }
+
+    /* Gallery */
+    .gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .gallery img { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; box-shadow: var(--shadow); transition: transform .3s; }
+    .gallery img:hover { transform: scale(1.02); }
+    .gallery img:nth-child(1) { grid-column: span 2; grid-row: span 2; height: 414px; }
+
+    /* Stores */
+    .stores { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .store { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+    .store img { width: 100%; height: 170px; object-fit: cover; }
+    .store__body { padding: 20px; }
+    .store h3 { font-size: 18px; margin-bottom: 6px; }
+    .store p { color: var(--muted); font-size: 15px; margin-bottom: 4px; }
+    .store .hours { color: var(--green); font-weight: 700; font-size: 14px; }
+
+    /* News */
+    .news-list { display: grid; gap: 18px; }
+    .news-item {
+      display: grid; grid-template-columns: 160px 1fr; gap: 20px;
+      background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .news-item img { width: 100%; height: 100%; object-fit: cover; min-height: 140px; }
+    .news-item__body { padding: 18px 20px 18px 0; }
+    .news-item h3 { font-size: 19px; margin-bottom: 6px; }
+    .news-item .date { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+    .news-item p { color: #333; font-size: 15px; }
+
+    /* Reviews */
+    .reviews { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .review { background: var(--card); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); }
+    .review .stars { color: var(--yellow); font-size: 18px; margin-bottom: 10px; letter-spacing: 2px; }
+    .review p { font-size: 15px; color: #333; margin-bottom: 14px; }
+    .review .author { font-weight: 700; font-size: 14px; }
+    .review .author span { color: var(--muted); font-weight: 400; }
+
+    /* CTA */
+    .cta {
+      background: linear-gradient(135deg, var(--green), var(--green-2));
+      color: #fff; border-radius: 20px; padding: 48px 32px; text-align: center;
+      box-shadow: 0 20px 40px rgba(13, 107, 77, .25);
+    }
+    .cta h2 { font-size: clamp(24px, 3vw, 32px); margin-bottom: 10px; }
+    .cta p { color: #d7ece3; margin-bottom: 24px; }
+
+    /* Footer */
+    .footer { background: #10241c; color: #b9c9c1; padding: 40px 0 24px; font-size: 14px; }
+    .footer__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 24px; }
+    .footer h4 { color: #fff; font-size: 16px; margin-bottom: 10px; }
+    .footer a { color: #b9c9c1; text-decoration: none; }
+    .footer a:hover { color: var(--yellow); }
+    .footer__bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 18px; text-align: center; color: #7f948b; }
+
+    @media (max-width: 900px) {
+      .gallery { grid-template-columns: repeat(2, 1fr); }
+      .gallery img:nth-child(1) { grid-column: span 2; grid-row: auto; height: 240px; }
+      .gallery img { height: 160px; }
+      .news-item { grid-template-columns: 1fr; }
+      .news-item img { height: 180px; }
+      .news-item__body { padding: 0 18px 18px; }
+      .nav { display: none; }
+    }
     @media (max-width: 600px) {
-      .hero h1 { font-size: 26px; }
-      .nav a { margin-left: 10px; font-size: 14px; }
+      .section { padding: 52px 0; }
+      .hero__stats { gap: 20px; }
     }
   </style>
 </head>
 <body>
 
-  <header class="header">
-    <div class="container header__inner">
-      <a href="./" class="logo">Туймарт</a>
-      <nav class="nav">
-        <a href="#about">О сети</a>
-        <a href="#stores">Магазины</a>
-        <a href="#news">Новости</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
+<header class="header">
+  <div class="container header__inner">
+    <a href="./" class="logo">Туй<span>март</span></a>
+    <nav class="nav">
+      <a href="#catalog">Товары</a>
+      <a href="#about">О сети</a>
+      <a href="#promo">Акции</a>
+      <a href="#stores">Магазины</a>
+      <a href="#news">Новости</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="shop-bar">
+      <a class="header__phone" href="tel:+74112000000">+7 (4112) 00-00-00</a>
+      <a class="cart-btn" href="shop/cart-page.php">Корзина <span class="count" id="cart-count">0</span></a>
+      <a class="header__phone" href="shop/account.php">Кабинет</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Туймарт — минимаркеты рядом с домом в Якутске</h1>
-      <p>Свежие продукты, выгодные акции и удобные магазины в каждом районе города.</p>
-      <a href="#stores" class="btn">Найти магазин</a>
+<section class="hero">
+  <div class="container">
+    <span class="hero__badge">Сеть минимаркетов в Якутске</span>
+    <h1>Свежие продукты рядом с домом — каждый день</h1>
+    <p>Туймарт — это удобные магазины в каждом районе Якутска: овощи и фрукты, молочные продукты, хлеб, напитки и всё необходимое для дома.</p>
+    <div class="hero__actions">
+      <a href="#catalog" class="btn btn--primary">Купить продукты</a>
+      <a href="#stores" class="btn btn--ghost">Найти магазин</a>
     </div>
-  </section>
-
-  <section id="about" class="section">
-    <div class="container">
-      <h2>О сети Туймарт</h2>
-      <p>Туймарт — это сеть минимаркетов в Якутске, где можно быстро купить свежие продукты, товары повседневного спроса и товары для дома. Мы работаем для жителей города и делаем покупки удобными.</p>
+    <div class="hero__stats">
+      <div><b>12+</b><span>магазинов в городе</span></div>
+      <div><b>8:00–23:00</b><span>работаем ежедневно</span></div>
+      <div><b>1000+</b><span>товаров на полках</span></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="stores" class="section section--gray">
-    <div class="container">
+<section id="catalog" class="section">
+  <div class="container">
+    <div class="section__head">
+      <h2>Товары</h2>
+      <p>Базовые позиции на каждый день — добавьте в корзину и оформите заказ.</p>
+    </div>
+    <div id="products" class="products"><p>Загрузка товаров…</p></div>
+  </div>
+</section>
+
+<section id="about" class="section section--gray">
+  <div class="container">
+    <div class="section__head">
+      <h2>Почему выбирают Туймарт</h2>
+      <p>Мы делаем ежедневные покупки быстрыми и приятными — без очередей и лишних поездок.</p>
+    </div>
+    <div class="features">
+      <div class="feature">
+        <div class="feature__icon">🥬</div>
+        <h3>Свежие продукты</h3>
+        <p>Овощи, фрукты и молочные продукты привозим каждое утро.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">📍</div>
+        <h3>Рядом с домом</h3>
+        <p>Магазины в шаговой доступности в разных районах Якутска.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">⏱️</div>
+        <h3>Быстро и удобно</h3>
+        <p>Продуманная выкладка и кассы без долгих очередей.</p>
+      </div>
+      <div class="feature">
+        <div class="feature__icon">💛</div>
+        <h3>Выгодные акции</h3>
+        <p>Каждую неделю — скидки на популярные категории товаров.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="promo" class="section">
+  <div class="container">
+    <div class="section__head">
+      <h2>Акции и выгода</h2>
+      <p>Следите за предложениями — каждую неделю что-то новое.</p>
+    </div>
+    <div class="promo">
+      <div class="promo-card promo-card--yellow">
+        <span class="tag">Хит недели</span>
+        <h3>−20% на овощи и фрукты</h3>
+        <p>Скидка действует на все свежие овощи и фрукты в магазинах сети по вторникам и средам.</p>
+      </div>
+      <div class="promo-card promo-card--green">
+        <span class="tag">Для семьи</span>
+        <h3>2 по цене 1</h3>
+        <p>На молочные продукты и хлеб каждые выходные — удобно закупиться на всю неделю.</p>
+      </div>
+      <div class="promo-card promo-card--mint">
+        <span class="tag">Новичкам</span>
+        <h3>Скидка 10%</h3>
+        <p>Первый чек от 500 ₽ по промокоду «ТУЙМАРТ» — приятный старт для новых покупателей.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--gray">
+  <div class="container">
+    <div class="section__head">
+      <h2>Как выглядят наши магазины</h2>
+      <p>Чисто, светло и понятно — так мы хотим, чтобы выглядели ежедневные покупки.</p>
+    </div>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1604719312566-8912e9227c6a?auto=format&fit=crop&w=1200&q=80" alt="Интерьер магазина Туймарт" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=800&q=80" alt="Полки с продуктами" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&w=800&q=80" alt="Свежие овощи на витрине" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1588964895597-cfccd6e2dbf9?auto=format&fit=crop&w=800&q=80" alt="Витрина с молочными продуктами" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1595079676339-1534801ad6cf?auto=format&fit=crop&w=800&q=80" alt="Хлебный отдел" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="stores" class="section">
+  <div class="container">
+    <div class="section__head">
       <h2>Наши магазины</h2>
-      <div class="cards">
-        <div class="card"><h3>Туймарт на Ленина</h3><p>ул. Ленина, 15 — ежедневно 8:00–23:00</p></div>
-        <div class="card"><h3>Туймарт на Дзержинского</h3><p>ул. Дзержинского, 42 — ежедневно 8:00–23:00</p></div>
-        <div class="card"><h3>Туймарт в Сайсарах</h3><p>мкр. Сайсары, 8 — ежедневно 8:00–22:00</p></div>
+      <p>Выберите ближайший — мы стараемся быть в каждом районе города.</p>
+    </div>
+    <div class="stores">
+      <div class="store">
+        <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=800&q=80" alt="Туймарт на Ленина" loading="lazy">
+        <div class="store__body">
+          <h3>Туймарт на Ленина</h3>
+          <p>ул. Ленина, 15</p>
+          <p class="hours">Ежедневно 8:00–23:00</p>
+        </div>
+      </div>
+      <div class="store">
+        <img src="https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&w=800&q=80" alt="Туймарт на Дзержинского" loading="lazy">
+        <div class="store__body">
+          <h3>Туймарт на Дзержинского</h3>
+          <p>ул. Дзержинского, 42</p>
+          <p class="hours">Ежедневно 8:00–23:00</p>
+        </div>
+      </div>
+      <div class="store">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80" alt="Туймарт в Сайсарах" loading="lazy">
+        <div class="store__body">
+          <h3>Туймарт в Сайсарах</h3>
+          <p>мкр. Сайсары, 8</p>
+          <p class="hours">Ежедневно 8:00–22:00</p>
+        </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="news" class="section">
-    <div class="container">
-      <h1>Новости Туймарт</h1>
-      <div id="news-list" class="news-list">
-        <p>Загрузка новостей…</p>
+<section id="news" class="section section--gray">
+  <div class="container">
+    <div class="section__head">
+      <h2>Новости Туймарт</h2>
+      <p>Открытия, акции и обновления сети.</p>
+    </div>
+    <div id="news-list" class="news-list">
+      <p>Загрузка новостей…</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section__head">
+      <h2>Отзывы покупателей</h2>
+      <p>Спасибо, что выбираете Туймарт.</p>
+    </div>
+    <div class="reviews">
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>«Удобно, что магазин прямо во дворе. Овощи всегда свежие, а персонал приветливый.»</p>
+        <div class="author">Анна <span>— Якутск</span></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★★</div>
+        <p>«Захожу после работы за продуктами на ужин — быстро, без очередей и с акциями.»</p>
+        <div class="author">Дмитрий <span>— Якутск</span></div>
+      </div>
+      <div class="review">
+        <div class="stars">★★★★☆</div>
+        <p>«Хороший выбор молочки и хлеба. Хотелось бы побольше готовой еды — но в целом отлично.»</p>
+        <div class="author">Мария <span>— Якутск</span></div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contacts" class="section section--gray">
-    <div class="container">
-      <h2>Контакты</h2>
-      <p>Телефон: +7 (4112) 00-00-00</p>
-      <p>Email: info@tuymart.ru</p>
+<section class="section">
+  <div class="container">
+    <div class="cta">
+      <h2>Загляните в Туймарт сегодня</h2>
+      <p>Найдите ближайший магазин и оцените свежие продукты и акции недели.</p>
+      <a href="#stores" class="btn btn--primary">Ближайший магазин</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="footer">
-    <div class="container"><p>© 2026 Туймарт. Учебный проект.</p></div>
-  </footer>
+<footer id="contacts" class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <h4>Туймарт</h4>
+        <p>Сеть минимаркетов в Якутске. Свежие продукты рядом с домом.</p>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <p><a href="tel:+74112000000">+7 (4112) 00-00-00</a></p>
+        <p><a href="mailto:info@tuymart.ru">info@tuymart.ru</a></p>
+      </div>
+      <div>
+        <h4>Разделы</h4>
+        <p><a href="#catalog">Товары</a></p>
+        <p><a href="#stores">Магазины</a></p>
+        <p><a href="#news">Новости</a></p>
+        <p><a href="shop/account.php">Личный кабинет</a></p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Туймарт. Учебный проект.</p>
+    </div>
+  </div>
+</footer>
 
-  <script>
-    function escapeHtml(str) {
-      return String(str).replace(/[&<>"']/g, s => ({
-        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
-      }[s]));
-    }
-    function formatDate(d) {
-      const date = new Date(d);
-      return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
-    }
+<script>
+  function escapeHtml(str) {
+    return String(str).replace(/[&<>"']/g, s => ({
+      '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+    }[s]));
+  }
+  function formatDate(d) {
+    const date = new Date(d);
+    if (isNaN(date)) return d;
+    return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
 
-    fetch('news-data.json', { cache: 'no-store' })
+  /* ---------- Корзина ---------- */
+  const cartCountEl = document.getElementById('cart-count');
+
+  function updateCartCount(n) { if (cartCountEl) cartCountEl.textContent = n ?? 0; }
+
+  function loadCart() {
+    return fetch('shop/cart.php?action=list', { cache: 'no-store' })
       .then(r => r.ok ? r.json() : Promise.reject(r.status))
-      .then(news => {
-        const list = document.getElementById('news-list');
-        if (!Array.isArray(news) || !news.length) {
-          list.innerHTML = '<p>Новостей пока нет.</p>';
-          return;
-        }
-        news.sort((a, b) => new Date(b.date) - new Date(a.date));
-        list.innerHTML = news.map(n => `
-          <article class="news-item">
-            <h2>${escapeHtml(n.title)}</h2>
-            <div class="date">${formatDate(n.date)}</div>
-            <p>${escapeHtml(n.text)}</p>
-          </article>
-        `).join('');
-      })
-      .catch(() => {
-        document.getElementById('news-list').innerHTML =
-          '<p>Не удалось загрузить новости.</p>';
-      });
+      .then(d => { updateCartCount(d.count); return d; })
+      .catch(() => {});
+  }
 
-    // Плавный скролл
-    document.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener('click', e => {
-        const id = link.getAttribute('href');
-        if (id.length > 1) {
-          e.preventDefault();
-          document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
-        }
-      });
+  /* ---------- Каталог ---------- */
+  const productsEl = document.getElementById('products');
+
+  fetch('products.json', { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(list => {
+      if (!Array.isArray(list) || !list.length) {
+        productsEl.innerHTML = '<p>Товары скоро появятся.</p>';
+        return;
+      }
+      productsEl.innerHTML = list.map(p => `
+        <div class="product">
+          <img src="${escapeHtml(p.image)}" alt="${escapeHtml(p.title)}" loading="lazy">
+          <div class="product__body">
+            <div class="cat">${escapeHtml(p.category || '')}</div>
+            <h3>${escapeHtml(p.title)}</h3>
+            <div class="desc">${escapeHtml(p.description || '')}</div>
+            <div class="foot">
+              <div class="price">${Number(p.price)} ₽ <small>/ ${escapeHtml(p.unit || 'шт.')}</small></div>
+              <button class="add-btn" data-id="${Number(p.id)}">В корзину</button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    })
+    .catch(() => { productsEl.innerHTML = '<p>Не удалось загрузить товары.</p>'; });
+
+  document.addEventListener('click', e => {
+    const btn = e.target.closest('.add-btn');
+    if (!btn) return;
+    const id = btn.dataset.id;
+    btn.disabled = true;
+    const fd = new FormData();
+    fd.append('action', 'add');
+    fd.append('id', id);
+    fd.append('qty', 1);
+    fetch('shop/cart.php', { method: 'POST', body: fd })
+      .then(r => r.json())
+      .then(d => {
+        updateCartCount(d.count);
+        const old = btn.textContent;
+        btn.textContent = 'Добавлено ✓';
+        setTimeout(() => { btn.textContent = old; btn.disabled = false; }, 900);
+      })
+      .catch(() => { btn.disabled = false; });
+  });
+
+  loadCart();
+
+  /* ---------- Новости ---------- */
+  const newsImages = [
+    "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1578916171728-46686eac8d58?auto=format&fit=crop&w=800&q=80",
+    "https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?auto=format&fit=crop&w=800&q=80"
+  ];
+
+  fetch('news-data.json', { cache: 'no-store' })
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(news => {
+      const list = document.getElementById('news-list');
+      if (!Array.isArray(news) || !news.length) {
+        list.innerHTML = '<p>Новостей пока нет.</p>';
+        return;
+      }
+      news.sort((a, b) => new Date(b.date) - new Date(a.date));
+      list.innerHTML = news.map((n, i) => {
+        const img = n.image ? escapeHtml(n.image) : newsImages[i % newsImages.length];
+        return `
+          <article class="news-item">
+            <img src="${img}" alt="${escapeHtml(n.title)}" loading="lazy">
+            <div class="news-item__body">
+              <h3>${escapeHtml(n.title)}</h3>
+              <div class="date">${formatDate(n.date)}</div>
+              <p>${escapeHtml(n.text)}</p>
+            </div>
+          </article>
+        `;
+      }).join('');
+    })
+    .catch(() => {
+      document.getElementById('news-list').innerHTML =
+        '<p>Не удалось загрузить новости.</p>';
     });
-  </script>
+
+  /* ---------- Плавный скролл ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href');
+      if (id.length > 1) {
+        const el = document.querySelector(id);
+        if (el) {
+          e.preventDefault();
+          const offset = 70;
+          const top = el.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      }
+    });
+  });
+</script>
 </body>
 </html>
