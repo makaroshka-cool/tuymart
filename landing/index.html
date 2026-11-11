@@ -10,131 +10,40 @@
   <link rel="canonical" href="https://username.github.io/tuymart-landing/">
 
   <style>
-    /* ===================== БАЗА ===================== */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-      color: #1a1a1a;
-      line-height: 1.6;
-    }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-    /* ===================== ХЕДЕР ===================== */
+    /* Хедер */
     .header { background: #0d6b4d; color: #fff; }
-    .header__inner {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 16px 20px; flex-wrap: wrap; gap: 12px;
-    }
+    .header__inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
     .logo { color: #fff; font-size: 24px; font-weight: 700; text-decoration: none; }
     .nav a { color: #fff; text-decoration: none; margin-left: 18px; }
     .nav a:hover { text-decoration: underline; }
-    .nav__admin {
-      background: #f5b301; color: #1a1a1a !important;
-      padding: 4px 10px; border-radius: 4px;
-    }
 
-    /* ===================== HERO ===================== */
-    .hero {
-      background: linear-gradient(135deg, #0d6b4d, #14a06f);
-      color: #fff; padding: 80px 0; text-align: center;
-    }
+    /* Hero */
+    .hero { background: linear-gradient(135deg, #0d6b4d, #14a06f); color: #fff; padding: 80px 0; text-align: center; }
     .hero h1 { font-size: 36px; margin-bottom: 16px; }
     .hero p { font-size: 18px; margin-bottom: 24px; }
-    .btn {
-      display: inline-block; background: #f5b301; color: #1a1a1a;
-      padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600;
-    }
+    .btn { display: inline-block; background: #f5b301; color: #1a1a1a; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; }
     .btn:hover { opacity: 0.9; }
 
-    /* ===================== СЕКЦИИ ===================== */
+    /* Секции */
     .section { padding: 60px 0; }
     .section--gray { background: #f4f6f5; }
     .section h1, .section h2 { font-size: 28px; margin-bottom: 24px; }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: #fff; border: 1px solid #e0e0e0;
-      border-radius: 8px; padding: 20px;
-    }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; }
 
-    /* ===================== НОВОСТИ ===================== */
+    /* Новости */
     .news-list { display: grid; gap: 20px; }
-    .news-item {
-      border: 1px solid #e0e0e0; border-radius: 8px;
-      padding: 20px; background: #fff;
-    }
+    .news-item { border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; background: #fff; }
     .news-item h2 { font-size: 22px; margin-bottom: 8px; }
     .news-item .date { color: #777; font-size: 14px; margin-bottom: 10px; }
 
-    /* ===================== ФУТЕР ===================== */
-    .footer {
-      background: #1a1a1a; color: #ccc;
-      padding: 24px 0; text-align: center; font-size: 14px;
-    }
-
-    /* ===================== АДМИНКА ===================== */
-    .admin-overlay {
-      position: fixed; inset: 0; background: rgba(0,0,0,0.55);
-      display: none; align-items: flex-start; justify-content: center;
-      padding: 40px 20px; z-index: 1000; overflow-y: auto;
-    }
-    .admin-overlay.active { display: flex; }
-
-    .admin-card {
-      background: #fff; max-width: 480px; width: 100%;
-      padding: 32px; border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      margin: auto;
-    }
-    .admin-card h1 { font-size: 22px; margin-bottom: 20px; }
-
-    .admin-panel {
-      background: #fff; max-width: 900px; width: 100%;
-      padding: 32px; border-radius: 8px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      margin: auto;
-    }
-
-    .admin-card input,
-    .admin-card select,
-    .admin-card textarea,
-    .admin-panel input,
-    .admin-panel textarea {
-      width: 100%; padding: 10px; margin-bottom: 14px;
-      border: 1px solid #ccc; border-radius: 4px; font-family: inherit;
-    }
-    .admin-card button,
-    .admin-panel .btn-add {
-      padding: 12px 20px; background: #0d6b4d; color: #fff;
-      border: none; border-radius: 4px; font-size: 16px; cursor: pointer;
-    }
-    .admin-card button { width: 100%; }
-    .admin-card button:hover,
-    .admin-panel .btn-add:hover { background: #0a553d; }
-
-    .admin-panel .row {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 10px 0; border-bottom: 1px solid #eee; gap: 12px;
-    }
-    .btn-sm {
-      padding: 6px 12px; font-size: 14px; cursor: pointer;
-      border: none; border-radius: 4px; background: #d9534f; color: #fff;
-    }
-    .btn-close {
-      background: #777 !important; color: #fff;
-      padding: 6px 12px; border: none; border-radius: 4px;
-      cursor: pointer; font-size: 14px;
-    }
-    .admin-error { color: #d9534f; font-size: 14px; margin-bottom: 12px; }
-    .admin-role { color: #777; font-size: 14px; }
-    .admin-badge {
-      display: inline-block; background: #0d6b4d; color: #fff;
-      padding: 2px 10px; border-radius: 12px; font-size: 13px;
-    }
+    /* Футер */
+    .footer { background: #1a1a1a; color: #ccc; padding: 24px 0; text-align: center; font-size: 14px; }
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 26px; }
@@ -144,21 +53,18 @@
 </head>
 <body>
 
-  <!-- ===================== ХЕДЕР ===================== -->
   <header class="header">
     <div class="container header__inner">
-      <a href="#" class="logo">Туймарт</a>
+      <a href="./" class="logo">Туймарт</a>
       <nav class="nav">
         <a href="#about">О сети</a>
         <a href="#stores">Магазины</a>
         <a href="#news">Новости</a>
         <a href="#contacts">Контакты</a>
-        <a href="#" class="nav__admin" onclick="openAdmin(); return false;">Админ</a>
       </nav>
     </div>
   </header>
 
-  <!-- ===================== HERO ===================== -->
   <section class="hero">
     <div class="container">
       <h1>Туймарт — минимаркеты рядом с домом в Якутске</h1>
@@ -167,7 +73,6 @@
     </div>
   </section>
 
-  <!-- ===================== О СЕТИ ===================== -->
   <section id="about" class="section">
     <div class="container">
       <h2>О сети Туймарт</h2>
@@ -175,7 +80,6 @@
     </div>
   </section>
 
-  <!-- ===================== МАГАЗИНЫ ===================== -->
   <section id="stores" class="section section--gray">
     <div class="container">
       <h2>Наши магазины</h2>
@@ -187,15 +91,15 @@
     </div>
   </section>
 
-  <!-- ===================== НОВОСТИ ===================== -->
   <section id="news" class="section">
     <div class="container">
       <h1>Новости Туймарт</h1>
-      <div id="news-list" class="news-list"></div>
+      <div id="news-list" class="news-list">
+        <p>Загрузка новостей…</p>
+      </div>
     </div>
   </section>
 
-  <!-- ===================== КОНТАКТЫ ===================== -->
   <section id="contacts" class="section section--gray">
     <div class="container">
       <h2>Контакты</h2>
@@ -204,270 +108,53 @@
     </div>
   </section>
 
-  <!-- ===================== ФУТЕР ===================== -->
   <footer class="footer">
-    <div class="container">
-      <p>© 2026 Туймарт. Учебный проект.</p>
-    </div>
+    <div class="container"><p>© 2026 Туймарт. Учебный проект.</p></div>
   </footer>
 
-  <!-- ===================== АДМИН-ПАНЕЛЬ (модальное окно) ===================== -->
-  <div class="admin-overlay" id="admin-overlay">
-    <div class="admin-card" id="login-view">
-      <div class="row" style="border:none;padding:0;margin-bottom:10px">
-        <h1>Вход в админ-панель</h1>
-        <button class="btn-close" onclick="closeAdmin()">✕</button>
-      </div>
-      <div class="admin-error" id="login-error"></div>
-      <input type="text" id="login" placeholder="Логин">
-      <input type="password" id="password" placeholder="Пароль">
-      <button onclick="login()">Войти</button>
-      <p class="admin-role" style="margin-top:14px">
-        Тестовые аккаунты:<br>
-        admin / admin123 — администратор<br>
-        editor / editor123 — редактор<br>
-        operator / operator123 — оператор
-      </p>
-    </div>
-
-    <div class="admin-panel" id="panel-view" style="display:none">
-      <div class="row">
-        <h1>Панель управления</h1>
-        <div>
-          <span class="admin-badge" id="role-label"></span>
-          <button class="btn-close" onclick="closeAdmin()" style="margin-left:10px">✕</button>
-        </div>
-      </div>
-
-      <div id="news-section" style="margin-top:24px">
-        <div class="row" style="border:none">
-          <h2 style="font-size:20px">Новости</h2>
-          <button class="btn-add" id="btn-add-news" onclick="showAddForm()">+ Добавить новость</button>
-        </div>
-        <div id="add-form" style="display:none;margin-top:16px;padding:16px;background:#f4f6f5;border-radius:6px">
-          <input type="text" id="news-title" placeholder="Заголовок">
-          <input type="date" id="news-date">
-          <textarea id="news-text" placeholder="Текст новости" rows="4"></textarea>
-          <button class="btn-add" onclick="addNews()">Сохранить</button>
-          <button class="btn-close" onclick="hideAddForm()" style="margin-left:8px">Отмена</button>
-        </div>
-        <div id="admin-news-list" style="margin-top:16px"></div>
-      </div>
-
-      <div id="users-section" style="margin-top:32px;display:none">
-        <h2 style="font-size:20px;margin-bottom:8px">Пользователи (только администратор)</h2>
-        <p class="admin-role">Демонстрационный список ролей.</p>
-        <ul style="margin-top:8px;padding-left:20px">
-          <li>admin — администратор</li>
-          <li>editor — редактор</li>
-          <li>operator — оператор</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===================== СКРИПТЫ ===================== -->
   <script>
-    /* ---------- Данные новостей ---------- */
-    const DEFAULT_NEWS = [
-      {
-        id: 1,
-        title: 'Открытие нового магазина Туймарт в Сайсарах',
-        date: '2026-11-01',
-        text: 'Мы открыли новый минимаркет в микрорайоне Сайсары. Свежие продукты и удобная парковка ждут вас ежедневно с 8:00 до 22:00.'
-      },
-      {
-        id: 2,
-        title: 'Акция «Свежие продукты каждую неделю»',
-        date: '2026-10-25',
-        text: 'Каждую неделю в магазинах Туймарт действуют скидки на овощи, фрукты и молочные продукты.'
-      }
-    ];
-
-    function getNews() {
-      const raw = localStorage.getItem('tuymart_news');
-      if (raw === null) {
-        localStorage.setItem('tuymart_news', JSON.stringify(DEFAULT_NEWS));
-        return DEFAULT_NEWS;
-      }
-      try { return JSON.parse(raw); } catch { return DEFAULT_NEWS; }
-    }
-
-    function saveNews(news) {
-      localStorage.setItem('tuymart_news', JSON.stringify(news));
-    }
-
-    function formatDate(d) {
-      const date = new Date(d);
-      return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
-    }
-
     function escapeHtml(str) {
       return String(str).replace(/[&<>"']/g, s => ({
         '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
       }[s]));
     }
-
-    /* ---------- Рендер публичных новостей ---------- */
-    function renderNews() {
-      const list = document.getElementById('news-list');
-      if (!list) return;
-      const news = getNews().slice().sort((a, b) => new Date(b.date) - new Date(a.date));
-      if (!news.length) {
-        list.innerHTML = '<p class="admin-role">Новостей пока нет.</p>';
-        return;
-      }
-      list.innerHTML = news.map(n => `
-        <article class="news-item">
-          <h2>${escapeHtml(n.title)}</h2>
-          <div class="date">${formatDate(n.date)}</div>
-          <p>${escapeHtml(n.text)}</p>
-        </article>
-      `).join('');
+    function formatDate(d) {
+      const date = new Date(d);
+      return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
     }
 
-    /* ---------- Пользователи и роли ---------- */
-    const USERS = {
-      admin:    { password: 'admin123',    role: 'admin',    label: 'Администратор' },
-      editor:   { password: 'editor123',   role: 'editor',   label: 'Редактор' },
-      operator: { password: 'operator123', role: 'operator', label: 'Оператор' }
-    };
+    fetch('news-data.json', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(news => {
+        const list = document.getElementById('news-list');
+        if (!Array.isArray(news) || !news.length) {
+          list.innerHTML = '<p>Новостей пока нет.</p>';
+          return;
+        }
+        news.sort((a, b) => new Date(b.date) - new Date(a.date));
+        list.innerHTML = news.map(n => `
+          <article class="news-item">
+            <h2>${escapeHtml(n.title)}</h2>
+            <div class="date">${formatDate(n.date)}</div>
+            <p>${escapeHtml(n.text)}</p>
+          </article>
+        `).join('');
+      })
+      .catch(() => {
+        document.getElementById('news-list').innerHTML =
+          '<p>Не удалось загрузить новости.</p>';
+      });
 
-    const PERMISSIONS = {
-      admin:    { addNews: true, deleteNews: true, manageUsers: true },
-      editor:   { addNews: true, deleteNews: true, manageUsers: false },
-      operator: { addNews: false, deleteNews: false, manageUsers: false }
-    };
-
-    let currentUser = null;
-
-    /* ---------- Открытие/закрытие админки ---------- */
-    function openAdmin() {
-      document.getElementById('admin-overlay').classList.add('active');
-      const role = sessionStorage.getItem('tuymart_role');
-      if (role && USERS[role]) {
-        currentUser = { login: role, ...USERS[role] };
-        showPanel();
-      } else {
-        document.getElementById('login-view').style.display = 'block';
-        document.getElementById('panel-view').style.display = 'none';
-        document.getElementById('login-error').textContent = '';
-        document.getElementById('login').value = '';
-        document.getElementById('password').value = '';
-      }
-    }
-
-    function closeAdmin() {
-      document.getElementById('admin-overlay').classList.remove('active');
-    }
-
-    /* ---------- Логин / логаут ---------- */
-    function login() {
-      const loginVal = document.getElementById('login').value.trim();
-      const password = document.getElementById('password').value;
-      const user = USERS[loginVal];
-      const err = document.getElementById('login-error');
-      err.textContent = '';
-      if (!user || user.password !== password) {
-        err.textContent = 'Неверный логин или пароль';
-        return;
-      }
-      sessionStorage.setItem('tuymart_role', loginVal);
-      currentUser = { login: loginVal, ...user };
-      showPanel();
-    }
-
-    function logout() {
-      sessionStorage.removeItem('tuymart_role');
-      currentUser = null;
-      document.getElementById('login-view').style.display = 'block';
-      document.getElementById('panel-view').style.display = 'none';
-      document.getElementById('login').value = '';
-      document.getElementById('password').value = '';
-    }
-
-    /* ---------- Панель управления ---------- */
-    function showPanel() {
-      document.getElementById('login-view').style.display = 'none';
-      document.getElementById('panel-view').style.display = 'block';
-      document.getElementById('role-label').textContent = currentUser.label;
-
-      const perms = PERMISSIONS[currentUser.role];
-      document.getElementById('users-section').style.display = perms.manageUsers ? 'block' : 'none';
-      document.getElementById('btn-add-news').style.display = perms.addNews ? 'inline-block' : 'none';
-
-      renderAdminNews();
-    }
-
-    function renderAdminNews() {
-      const list = document.getElementById('admin-news-list');
-      const news = getNews();
-      const perms = PERMISSIONS[currentUser.role];
-      if (!news.length) {
-        list.innerHTML = '<p class="admin-role">Новостей нет.</p>';
-        return;
-      }
-      list.innerHTML = news.map(n => `
-        <div class="row">
-          <div>
-            <strong>${escapeHtml(n.title)}</strong><br>
-            <span class="admin-role">${formatDate(n.date)}</span>
-          </div>
-          ${perms.deleteNews ? `<button class="btn-sm" onclick="deleteNews(${n.id})">Удалить</button>` : ''}
-        </div>
-      `).join('');
-    }
-
-    /* ---------- Добавление / удаление новостей ---------- */
-    function showAddForm() {
-      document.getElementById('add-form').style.display = 'block';
-    }
-    function hideAddForm() {
-      document.getElementById('add-form').style.display = 'none';
-    }
-
-    function addNews() {
-      const perms = PERMISSIONS[currentUser.role];
-      if (!perms.addNews) { alert('Недостаточно прав'); return; }
-
-      const title = document.getElementById('news-title').value.trim();
-      const date = document.getElementById('news-date').value;
-      const text = document.getElementById('news-text').value.trim();
-      if (!title || !date || !text) { alert('Заполните все поля'); return; }
-
-      const news = getNews();
-      news.push({ id: Date.now(), title, date, text });
-      saveNews(news);
-
-      hideAddForm();
-      document.getElementById('news-title').value = '';
-      document.getElementById('news-date').value = '';
-      document.getElementById('news-text').value = '';
-
-      renderAdminNews();
-      renderNews();
-    }
-
-    function deleteNews(id) {
-      const perms = PERMISSIONS[currentUser.role];
-      if (!perms.deleteNews) { alert('Недостаточно прав'); return; }
-      if (!confirm('Удалить новость?')) return;
-
-      saveNews(getNews().filter(n => n.id !== id));
-      renderAdminNews();
-      renderNews();
-    }
-
-    /* ---------- Закрытие по Esc / клику по фону ---------- */
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeAdmin();
+    // Плавный скролл
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const id = link.getAttribute('href');
+        if (id.length > 1) {
+          e.preventDefault();
+          document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
     });
-    document.getElementById('admin-overlay').addEventListener('click', e => {
-      if (e.target.id === 'admin-overlay') closeAdmin();
-    });
-
-    /* ---------- Инициализация ---------- */
-    document.addEventListener('DOMContentLoaded', renderNews);
   </script>
 </body>
 </html>
