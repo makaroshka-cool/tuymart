@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Туймарт — сеть минимаркетов в Якутске | Продукты с доставкой</title>
+  <meta name="description" content="Туймарт — сеть минимаркетов в Якутске. Свежие продукты, удобные магазины рядом с домом, доставка продуктов. Узнайте адреса магазинов и акции.">
+  <meta name="keywords" content="туймарт, якутск минимаркет, продукты якутск, магазин туймарт, доставка продуктов якутск">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://username.github.io/tuymart-landing/">
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: #1a1a1a; line-height: 1.6; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+    /* Хедер */
+    .header { background: #0d6b4d; color: #fff; }
+    .header__inner { display: flex; justify-content: space-between; align-items: center; padding: 16px 20px; flex-wrap: wrap; gap: 12px; }
+    .logo { color: #fff; font-size: 24px; font-weight: 700; text-decoration: none; }
+    .nav a { color: #fff; text-decoration: none; margin-left: 18px; }
+    .nav a:hover { text-decoration: underline; }
+
+    /* Hero */
+    .hero { background: linear-gradient(135deg, #0d6b4d, #14a06f); color: #fff; padding: 80px 0; text-align: center; }
+    .hero h1 { font-size: 36px; margin-bottom: 16px; }
+    .hero p { font-size: 18px; margin-bottom: 24px; }
+    .btn { display: inline-block; background: #f5b301; color: #1a1a1a; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; }
+    .btn:hover { opacity: 0.9; }
+
+    /* Секции */
+    .section { padding: 60px 0; }
+    .section--gray { background: #f4f6f5; }
+    .section h1, .section h2 { font-size: 28px; margin-bottom: 24px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .card { background: #fff; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; }
+
+    /* Новости */
+    .news-list { display: grid; gap: 20px; }
+    .news-item { border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; background: #fff; }
+    .news-item h2 { font-size: 22px; margin-bottom: 8px; }
+    .news-item .date { color: #777; font-size: 14px; margin-bottom: 10px; }
+
+    /* Футер */
+    .footer { background: #1a1a1a; color: #ccc; padding: 24px 0; text-align: center; font-size: 14px; }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 26px; }
+      .nav a { margin-left: 10px; font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="./" class="logo">Туймарт</a>
+      <nav class="nav">
+        <a href="#about">О сети</a>
+        <a href="#stores">Магазины</a>
+        <a href="#news">Новости</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Туймарт — минимаркеты рядом с домом в Якутске</h1>
+      <p>Свежие продукты, выгодные акции и удобные магазины в каждом районе города.</p>
+      <a href="#stores" class="btn">Найти магазин</a>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2>О сети Туймарт</h2>
+      <p>Туймарт — это сеть минимаркетов в Якутске, где можно быстро купить свежие продукты, товары повседневного спроса и товары для дома. Мы работаем для жителей города и делаем покупки удобными.</p>
+    </div>
+  </section>
+
+  <section id="stores" class="section section--gray">
+    <div class="container">
+      <h2>Наши магазины</h2>
+      <div class="cards">
+        <div class="card"><h3>Туймарт на Ленина</h3><p>ул. Ленина, 15 — ежедневно 8:00–23:00</p></div>
+        <div class="card"><h3>Туймарт на Дзержинского</h3><p>ул. Дзержинского, 42 — ежедневно 8:00–23:00</p></div>
+        <div class="card"><h3>Туймарт в Сайсарах</h3><p>мкр. Сайсары, 8 — ежедневно 8:00–22:00</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="news" class="section">
+    <div class="container">
+      <h1>Новости Туймарт</h1>
+      <div id="news-list" class="news-list">
+        <p>Загрузка новостей…</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts" class="section section--gray">
+    <div class="container">
+      <h2>Контакты</h2>
+      <p>Телефон: +7 (4112) 00-00-00</p>
+      <p>Email: info@tuymart.ru</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container"><p>© 2026 Туймарт. Учебный проект.</p></div>
+  </footer>
+
+  <script>
+    function escapeHtml(str) {
+      return String(str).replace(/[&<>"']/g, s => ({
+        '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+      }[s]));
+    }
+    function formatDate(d) {
+      const date = new Date(d);
+      return date.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' });
+    }
+
+    fetch('news-data.json', { cache: 'no-store' })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(news => {
+        const list = document.getElementById('news-list');
+        if (!Array.isArray(news) || !news.length) {
+          list.innerHTML = '<p>Новостей пока нет.</p>';
+          return;
+        }
+        news.sort((a, b) => new Date(b.date) - new Date(a.date));
+        list.innerHTML = news.map(n => `
+          <article class="news-item">
+            <h2>${escapeHtml(n.title)}</h2>
+            <div class="date">${formatDate(n.date)}</div>
+            <p>${escapeHtml(n.text)}</p>
+          </article>
+        `).join('');
+      })
+      .catch(() => {
+        document.getElementById('news-list').innerHTML =
+          '<p>Не удалось загрузить новости.</p>';
+      });
+
+    // Плавный скролл
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', e => {
+        const id = link.getAttribute('href');
+        if (id.length > 1) {
+          e.preventDefault();
+          document.querySelector(id)?.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
