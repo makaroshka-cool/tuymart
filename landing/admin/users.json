@@ -1,5 +1,0 @@
-{
-  "admin":    { "password": "$2y$10$e0MYzXyjpJS7Pd0RVvHwHe1HlCS4bZJ18JuywdMZ1j4i1pC7b8Z2G", "role": "admin",    "label": "Администратор" },
-  "editor":   { "password": "$2y$10$e0MYzXyjpJS7Pd0RVvHwHe1HlCS4bZJ18JuywdMZ1j4i1pC7b8Z2G", "role": "editor",   "label": "Редактор" },
-  "operator": { "password": "$2y$10$e0MYzXyjpJS7Pd0RVvHwHe1HlCS4bZJ18JuywdMZ1j4i1pC7b8Z2G", "role": "operator", "label": "Оператор" }
-}
